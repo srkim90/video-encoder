@@ -147,6 +147,10 @@ class FfProbeParse:
             dir_name = full_file_name.replace(file_name, "")
             if dir_name[-1] == dir_split:
                 dir_name = dir_name[0:-1]
+            try:
+                creation_time = datetime.datetime.strptime(data_dict['format']['tags']['creation_time'].split(".")[0], "%Y-%m-%dT%H:%M:%S")
+            except KeyError:
+                creation_time = datetime.datetime.now()
             return VideoModels(
                 video_type=FfProbeParse.get_video_type(video_stream_obj, streams),
                 file_name=format['filename'],
@@ -157,7 +161,7 @@ class FfProbeParse:
                 streams=streams,
                 video_streams=video_stream_obj,
                 gpx_stream_idx=gpx_stream_idx,
-                creation_time=datetime.datetime.strptime(data_dict['format']['tags']['creation_time'].split(".")[0], "%Y-%m-%dT%H:%M:%S"),
+                creation_time=creation_time,
                 duration=float(data_dict['format']['duration']),
                 dir_name=dir_name
             )
