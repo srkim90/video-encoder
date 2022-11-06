@@ -5,7 +5,7 @@ from video.video_encode import VideoEncoder
 
 def main():
     if platform.system() == "Linux":
-        dir = "../"
+        dir = "./"
     else:
         dir = "C:\\Users\\shshr\\Videos\\셈플"
     e = VideoEncoder(dir)
