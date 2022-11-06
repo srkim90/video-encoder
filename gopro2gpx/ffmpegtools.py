@@ -31,22 +31,22 @@ class FFMpegTools:
         self.ffmpeg = ffmpeg if ffmpeg else default_ffmpeg
         self.ffprobe = ffprobe if ffprobe else default_ffprobe
 
-        self.version = self.getVersion()
+        #self.version = self.getVersion()
 
-        self.use_json_format = False
-        if self.version.major >= 4:
-            self.use_json_format = True
+        # self.use_json_format = False
+        # if self.version.major >= 4:
+        self.use_json_format = True
 
-    def getVersion(self):
-        output = self.runCmdRaw(self.ffmpeg, ['-version'])
-        version_info = output.decode('utf-8')
-        version_info_reg = re.compile('ffmpeg version (\d+)\.(\d+)\.(\d+)', flags=re.I)
-        m = version_info_reg.search(version_info)
-        if m and len(m.groups()) == 3:
-            major = int(m.group(1))
-            medium = int(m.group(2))
-            minor = int(m.group(3))
-        return Version(major, medium, minor)
+    # def getVersion(self):
+    #     output = self.runCmdRaw(self.ffmpeg, ['-version'])
+    #     version_info = output.decode('utf-8')
+    #     version_info_reg = re.compile('ffmpeg version (\d+)\.(\d+)\.(\d+)', flags=re.I)
+    #     m = version_info_reg.search(version_info)
+    #     if m and len(m.groups()) == 3:
+    #         major = int(m.group(1))
+    #         medium = int(m.group(2))
+    #         minor = int(m.group(3))
+    #     return Version(major, medium, minor)
 
     def runCmd(self, cmd, args):
         result = subprocess.run([ cmd ] + args, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
