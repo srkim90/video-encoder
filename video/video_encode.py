@@ -166,6 +166,9 @@ class VideoEncoder:
             if len(files) > 0:
                 for file_name in files:
                     file_name: str
+                    ext = file_name.split(".")[-1]
+                    if ext not in self.check_ext:
+                        continue
                     if "_hevc." in file_name.lower() or '.tmp.' in file_name:
                         continue
                     full_path = os.path.join(root, file_name)
