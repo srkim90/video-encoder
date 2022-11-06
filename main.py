@@ -7,7 +7,7 @@ def main():
     if platform.system() == "Linux":
         dir = "./"
     else:
-        dir = "C:\\Users\\shshr\\Videos\\셈플"
+        dir = "C:\\Users\\shshr\\Videos\\sample\\4"
     e = VideoEncoder(dir)
     e.scan()
     pass

@@ -107,7 +107,7 @@ class VideoGpxService:
     def __xml_gpx_to_model(self, garmin_gpx: GpxModels, video_xml_gpx: str) -> GpxModels:
         video_dict_gpx = xmltodict.parse(video_xml_gpx)
         trkpt = video_dict_gpx['gpx']['trk']['trkseg']['trkpt']
-        video_model_gpx = GpxModels(None, None, [])
+        video_model_gpx = GpxModels(None, None, self.model, [])
         old_node = None
         for idx, item in enumerate(trkpt):
             node: GpxNodeModels = from_video_fields(item)

@@ -65,7 +65,7 @@ class GarminGpxService:
         return selected_fit
 
     def __fit_to_gpx(self, fit_path) -> GpxModels:
-        gpx_model: GpxModels = FitConverter.converter(fit_path)
+        gpx_model: GpxModels = FitConverter.converter(self.model, fit_path)
         self.__save_gpx_cache_file(fit_path, gpx_model)
         return gpx_model
 

@@ -7,6 +7,7 @@ from fitparse.records import FieldData, Field
 from marshmallow import fields
 
 from models.gpx_node_models import GpxNodeModels
+from models.video_models import VideoModels
 
 
 @dataclass_json
@@ -30,4 +31,5 @@ class GpxModels:
             decoder=datetime.fromisoformat,
             mm_field=fields.DateTime(format='iso')
         ))
+    video: VideoModels
     nodes: List[GpxNodeModels]

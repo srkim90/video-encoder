@@ -4,13 +4,14 @@ import fitparse
 
 from models.gpx_models import GpxModels
 from models.gpx_node_models import from_fit_fields, GpxNodeModels
+from models.video_models import VideoModels
 
 
 class FitConverter:
 
     @staticmethod
-    def converter(fit_files: Union[str, List[str]]) -> GpxModels:
-        model = GpxModels(start_time=None, end_time=None, nodes=[])
+    def converter(model: VideoModels, fit_files: Union[str, List[str]]) -> GpxModels:
+        model = GpxModels(start_time=None, end_time=None, video=model, nodes=[])
         if type(fit_files) != list:
             fit_files = [fit_files]
         for fit_file_name in fit_files:

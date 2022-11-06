@@ -37,17 +37,17 @@ class BitrateSelector:
     def select_bit_rate(model: VideoModels) -> int:
         # GoPro
         if model.video_type == VideoDeviceType.GO_PRO_1080P_30FPS:
-            return int(model.origin_bit_rate / 3)
+            return int(model.origin_bit_rate / 2)
         elif model.video_type == VideoDeviceType.GO_PRO_2_7K_30FPS:
-            return int(model.origin_bit_rate / 3)
+            return int(model.origin_bit_rate / 2)
         elif model.video_type == VideoDeviceType.GO_PRO_4K_30FPS:
-            return int(model.origin_bit_rate / 2.25)
+            return int(model.origin_bit_rate / 2.5)
         elif model.video_type == VideoDeviceType.GO_PRO_1080P_60FPS:
-            return int(model.origin_bit_rate / 3)
+            return int(model.origin_bit_rate / 2)
         elif model.video_type == VideoDeviceType.GO_PRO_2_7K_60FPS:
-            return int(model.origin_bit_rate / 3)
+            return int(model.origin_bit_rate / 2)
         elif model.video_type == VideoDeviceType.GO_PRO_4K_60FPS:
-            return int(model.origin_bit_rate / 2.25)
+            return int(model.origin_bit_rate / 2.5)
 
         # SONY
         elif model.video_type == VideoDeviceType.SONY_1080P_24FPS:
